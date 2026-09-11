@@ -60,13 +60,13 @@
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.08em;
-      color: var(--accent);
+      color: #5bc8ff;
       text-transform: uppercase;
       text-decoration: none;
       transition: color 0.2s, transform 0.15s;
       display: inline-block;
     }
-    .nav-logo:hover { color: #5bc8ff; transform: translateY(-1px); }
+    .nav-logo:hover { color: #fff; transform: translateY(-1px); }
     .nav-links {
       display: flex;
       gap: 36px;
@@ -81,7 +81,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: #5bc8ff; }
 
     /* HERO */
     .hero-banner {
@@ -252,6 +252,48 @@
       transition: color 0.2s, border-color 0.2s, transform 0.15s;
     }
     .btn-secondary:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+    .resume-card {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 14px;
+      border: 1.5px solid rgba(255,255,255,0.16);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(6px);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .resume-card:hover {
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-1px);
+    }
+    .resume-icon {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      color: rgba(255,255,255,0.5);
+    }
+    .resume-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+    }
+    .resume-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #5bc8ff;
+    }
+    .resume-sub {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.55);
+    }
 
     .hero-visual {
       display: flex;
@@ -428,7 +470,7 @@
       font-family: var(--mono);
       font-size: 10px;
       padding: 4px 10px;
-      border: 1px solid rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.15);
       color: var(--fg2);
       letter-spacing: 0.06em;
     }
@@ -453,7 +495,7 @@
 
     /* JOBS strip */
     .jobs-section {
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255,255,255,0.08);
       padding-top: 80px;
       margin-top: 0;
     }
@@ -475,7 +517,7 @@
       object-fit: contain;
       object-position: top left;
       display: block;
-      border: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
     }
     .job-img-caption {
       font-family: var(--mono);
@@ -519,7 +561,7 @@
 
     /* EDUCATION strip */
     .edu-section {
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255,255,255,0.08);
       padding-top: 80px;
       margin-top: 0;
     }
@@ -592,7 +634,7 @@
       font-family: var(--mono);
       font-size: 12px;
       letter-spacing: 0.06em;
-      color: #888;
+      color: #5a5650;
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -604,13 +646,14 @@
       transition: max-height 0.5s ease, opacity 0.4s ease;
       opacity: 0;
     }
-    .project-card.featured:hover .project-expand {
+    .project-card.featured:hover .project-expand,
+    .project-card.featured:focus-within .project-expand {
       max-height: 300px;
       opacity: 1;
     }
     .project-expand-inner {
       padding-top: 20px;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255,255,255,0.08);
       margin-top: 20px;
       font-size: 14px;
       line-height: 1.75;
@@ -646,9 +689,23 @@
       transition: max-height 0.55s ease, opacity 0.4s ease;
       opacity: 0;
     }
-    .project-card.robotics-card:hover .project-expand {
+    .project-card.robotics-card:hover .project-expand,
+    .project-card.robotics-card:focus-within .project-expand {
       max-height: 900px;
       opacity: 1;
+    }
+    .project-card.featured:focus-visible,
+    .project-card.robotics-card:focus-visible {
+      outline: 2px solid #5bc8ff;
+      outline-offset: 4px;
+    }
+    .expand-hint {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg3);
+      margin-top: 16px;
     }
     .robotics-teams {
       display: grid;
@@ -689,6 +746,111 @@
     }
     @media (max-width: 640px) {
       .robotics-teams { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* CAPSTONE TEMPLATE */
+    .project-card.capstone-card { grid-column: 1 / -1; }
+    .status-pill {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid rgba(240,160,48,0.5);
+      color: #f0a030;
+      background: rgba(240,160,48,0.08);
+      margin-bottom: 18px;
+    }
+    .project-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: #4a9eff;
+      margin-bottom: 16px;
+    }
+    .capstone-block { margin-top: 36px; }
+    .capstone-block:first-of-type { margin-top: 28px; }
+    .capstone-block-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4a9eff;
+      margin-bottom: 14px;
+    }
+    .capstone-visuals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .diagram-placeholder {
+      border: 1.5px dashed rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.02);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--fg3);
+      line-height: 1.6;
+    }
+    .constraints-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .constraint-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .constraint-item p {
+      font-size: 13.5px;
+      color: var(--fg2);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .bom-table-wrap { overflow-x: auto; }
+    .bom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 480px;
+    }
+    .bom-table th, .bom-table td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: var(--fg2);
+      font-weight: 300;
+    }
+    .bom-table th {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4a9eff;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .bom-total-row td {
+      font-family: var(--mono);
+      color: var(--fg);
+      font-weight: 500;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-bottom: none;
+    }
+    @media (max-width: 640px) {
+      .capstone-visuals { grid-template-columns: 1fr; }
     }
 
     /* CERT CARDS */
@@ -883,12 +1045,15 @@
       }
       /* Always show cert PDF hint */
       .cert-pdf-hint { opacity: 1; }
+      /* Hint text is meaningless once content is force-shown on touch */
+      .expand-hint { display: none; }
       /* Disable hover lift flashes on tap */
       .project-card:hover,
       .skill-group:hover,
       .cert-card:hover,
       .btn-primary:hover,
-      .btn-secondary:hover { transform: none !important; }
+      .btn-secondary:hover,
+      .resume-card:hover { transform: none !important; }
       /* Disable the blue bottom bar swipe on tap */
       .project-card:hover::after { transform: scaleX(0) !important; }
     }
@@ -907,8 +1072,9 @@
     .cert-card:focus-visible .cert-pdf-hint { opacity: 1; }
     .btn-primary:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
     .btn-secondary:focus-visible { outline: 2px solid #5bc8ff; outline-offset: 3px; }
+    .resume-card:focus-visible { outline: 2px solid #5bc8ff; outline-offset: 3px; }
     .social-link:focus-visible { outline: 2px solid #5bc8ff; outline-offset: 3px; }
-    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .nav-links a:focus-visible { outline: 2px solid #5bc8ff; outline-offset: 3px; }
   </style>
 </head>
 <body>
@@ -924,7 +1090,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
         <line x1="2" y1="6" x2="20" y2="6"/>
         <line x1="2" y1="11" x2="20" y2="11"/>
         <line x1="2" y1="16" x2="20" y2="16"/>
@@ -956,12 +1122,24 @@
         <div class="hero-cta">
           <a class="btn-primary" href="#projects">View Projects</a>
           <a class="btn-secondary" href="#education">My Background</a>
+          <a class="resume-card" href="assets/resume.pdf" target="_blank" rel="noopener">
+            <svg class="resume-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M12 11v6"/>
+              <path d="M9.5 14.5 12 17l2.5-2.5"/>
+            </svg>
+            <span class="resume-text">
+              <span class="resume-title">Resume</span>
+              <span class="resume-sub">Download PDF</span>
+            </span>
+          </a>
           <div class="social-links">
             <a class="social-link" href="https://www.linkedin.com/in/zee-p-8a0a72259/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
             <a class="social-link" href="https://github.com/zeepearson" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
           </div>
         </div>
@@ -1035,7 +1213,7 @@
     <div class="projects-grid">
 
       <!-- Featured -->
-      <div class="project-card featured reveal">
+      <div class="project-card featured reveal" tabindex="0">
         <div>
           <div class="project-num">01 — Featured</div>
           <h3 class="project-title">Smart Home Automation System</h3>
@@ -1049,6 +1227,7 @@
             <span class="project-tag">Real-Time Control</span>
             <span class="project-tag">Mobile Integration</span>
           </div>
+          <div class="expand-hint">Hover or focus for full write-up ↓</div>
           <div class="project-expand">
             <div class="project-expand-inner">
               <p>The Smart Home Automation System was built on the Texas Instruments Tiva C Series microcontroller (TM4C123GH6PM), leveraging its on-chip UART peripheral to establish a reliable serial communication link between the embedded controller and a companion mobile application. The system processed user commands in real time, parsing incoming data packets to trigger actions such as adjusting thermostat setpoints, controlling relay-driven appliances, and reading analog sensor outputs.</p>
@@ -1064,7 +1243,7 @@
                  alt="Video Demonstration of Smart Home project"
                  style="width:260px;height:146px;object-fit:cover;display:block;" />
             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);">
-              <svg width="56" height="40" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg">
+              <svg width="56" height="40" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path d="M66.5 7.7c-.8-2.9-2.9-5.1-5.7-5.9C55.8 0 34 0 34 0S12.2 0 7.2 1.8C4.5 2.6 2.3 4.8 1.5 7.7 0 12.8 0 24 0 24s0 11.2 1.5 16.3c.8 2.9 2.9 5.1 5.7 5.9C12.2 48 34 48 34 48s21.8 0 26.8-1.8c2.7-.8 4.9-3 5.7-5.9C68 35.2 68 24 68 24s0-11.2-1.5-16.3z" fill="#ff0000"/>
                 <path d="M27 34l18-10-18-10v20z" fill="#fff"/>
               </svg>
@@ -1074,7 +1253,7 @@
       </div>
 
       <!-- Robotics -->
-      <div class="project-card robotics-card reveal reveal-delay-1">
+      <div class="project-card robotics-card reveal reveal-delay-1" tabindex="0">
         <div class="project-num">02</div>
         <h3 class="project-title">Autonomous Robotics — Da Bears 247 & The Crew 7769</h3>
         <p class="project-desc">
@@ -1087,6 +1266,7 @@
           <span class="project-tag">PWM</span>
           <span class="project-tag">Pathfinder</span>
         </div>
+        <div class="expand-hint">Hover or focus for team photos ↓</div>
         <div class="project-expand">
           <div class="robotics-teams">
             <div class="robotics-team">
@@ -1105,6 +1285,126 @@
         </div>
       </div>
 
+      <!--
+        ===== CAPSTONE PROJECT TEMPLATE =====
+        Faculty-advised capstone with Dr. Hassanzadeh — details are still in progress.
+        Everything in [brackets] is filler for Zee to swap out as the project develops:
+        real title, description, flowchart image, project photo, constraint write-ups,
+        and BOM line items. Structure follows ABET Criterion 5 (design constraints)
+        and standard capstone documentation practice.
+      -->
+      <div class="project-card capstone-card reveal reveal-delay-2">
+        <div class="status-pill">In Progress — Details Coming Soon</div>
+        <div class="project-num">03 — Capstone</div>
+        <h3 class="project-title">[Capstone Project Title]</h3>
+        <div class="project-meta">Faculty Advisor: Dr. Hassanzadeh · Lawrence Technological University · [Semester / Year]</div>
+        <p class="project-desc">
+          [1–2 sentence problem statement: what real-world need does this system address, and what is the core engineering approach? Example shape: "Designed and prototyped a ___ system to address ___, using ___."]
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">[Tag 1]</span>
+          <span class="project-tag">[Tag 2]</span>
+          <span class="project-tag">[Tag 3]</span>
+          <span class="project-tag">[Tag 4]</span>
+        </div>
+
+        <div class="capstone-block">
+          <div class="capstone-block-label">System Overview</div>
+          <div class="capstone-visuals">
+            <div>
+              <div class="diagram-placeholder">[System / process flowchart goes here — swap this box for an &lt;img&gt; once the diagram is finalized]</div>
+              <div class="job-img-caption">Fig. 1 — System flowchart (placeholder)</div>
+            </div>
+            <div>
+              <div class="diagram-placeholder">[Photo or render of the physical prototype goes here — swap this box for an &lt;img&gt; once available]</div>
+              <div class="job-img-caption">Fig. 2 — Project prototype (placeholder)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="capstone-block">
+          <div class="capstone-block-label">Design Constraints (ABET Criterion 5)</div>
+          <div class="constraints-grid">
+            <div class="constraint-item">
+              <span class="constraint-label">Economic</span>
+              <p>[Budget ceiling, target unit cost, funding source]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Environmental</span>
+              <p>[Power draw, materials selection, end-of-life disposal]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Social</span>
+              <p>[Intended user population, accessibility considerations]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Ethical &amp; Political</span>
+              <p>[Regulatory constraints, data privacy, ethical design trade-offs]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Health &amp; Safety</span>
+              <p>[Electrical/mechanical hazards, fail-safes, testing protocol]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Manufacturability</span>
+              <p>[Fabrication method, tolerances, assembly process]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Sustainability</span>
+              <p>[Lifecycle expectations, energy efficiency, repairability]</p>
+            </div>
+            <div class="constraint-item">
+              <span class="constraint-label">Standards Referenced</span>
+              <p>[e.g., IEEE, IPC, NEC, or other applicable code sections]</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="capstone-block">
+          <div class="capstone-block-label">Bill of Materials (BOM)</div>
+          <div class="bom-table-wrap">
+            <table class="bom-table">
+              <thead>
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Unit Cost</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>[Component 1]</td>
+                  <td>[Qty]</td>
+                  <td>[Description]</td>
+                  <td>$[0.00]</td>
+                  <td>$[0.00]</td>
+                </tr>
+                <tr>
+                  <td>[Component 2]</td>
+                  <td>[Qty]</td>
+                  <td>[Description]</td>
+                  <td>$[0.00]</td>
+                  <td>$[0.00]</td>
+                </tr>
+                <tr>
+                  <td>[Component 3]</td>
+                  <td>[Qty]</td>
+                  <td>[Description]</td>
+                  <td>$[0.00]</td>
+                  <td>$[0.00]</td>
+                </tr>
+                <tr class="bom-total-row">
+                  <td colspan="4">Estimated Total</td>
+                  <td>$[0.00]</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1118,7 +1418,7 @@
     <div class="jobs-grid">
       <div class="job-card reveal reveal-delay-1">
         <div class="job-company">Blue Devil Adventure · Embedded Software Intern</div>
-        <div class="job-title">Sensor-to-Storage Embedded Data Pipeline</div>
+        <h3 class="job-title">Sensor-to-Storage Embedded Data Pipeline</h3>
         <div class="job-body">
           <div class="job-text">
             <div class="job-detail">
@@ -1152,7 +1452,7 @@
     <div class="edu-grid">
       <div class="edu-card reveal reveal-delay-1">
         <div class="edu-school">Lawrence Technological University · Southfield, MI</div>
-        <div class="edu-degree">Bachelor of Embedded Software Engineering</div>
+        <h3 class="edu-degree">Bachelor of Embedded Software Engineering</h3>
         <div class="edu-detail">
           Junior Year · GPA 3.7 · Coursework: C++, VHDL, HDL Circuit Design, MATLAB, Real-Time Embedded Systems
         </div>
@@ -1160,7 +1460,7 @@
       </div>
       <div class="edu-card reveal reveal-delay-2">
         <div class="edu-school">Oakland Community College · Bloomfield Hills, MI</div>
-        <div class="edu-degree">Associate of Applied Science in Software Engineering</div>
+        <h3 class="edu-degree">Associate of Applied Science in Software Engineering</h3>
         <div class="edu-detail">
           Early College Program · GPA 3.8 · Magna Cum Laude · Java, Python, HTML/CSS, Database Management, Data Structures
           <br />Kappa Phi Honor Society · Dean's List × 3
@@ -1169,7 +1469,7 @@
       </div>
       <div class="edu-card reveal reveal-delay-3" style="grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 40px;">
         <div class="edu-school">Oakland Schools Technical Campuses (OSTC) · Southwest · Wixom, MI</div>
-        <div class="edu-degree">Career Technical Education — Dual Program</div>
+        <h3 class="edu-degree">Career Technical Education — Dual Program</h3>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:12px;">
           <div>
             <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg3);margin-bottom:6px;">Cybersecurity &amp; Networking</div>
@@ -1210,7 +1510,7 @@
 
   <!-- SCROLL TO TOP -->
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
       <polyline points="18 15 12 9 6 15"/>
     </svg>
   </button>
@@ -1224,11 +1524,11 @@
       </div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/zee-p-8a0a72259/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
         <a href="https://github.com/zeepearson" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
       </div>
